@@ -9,4 +9,8 @@ class TaxModel
   attr_accessor :id
                 :name
                 :tax_value
+  
+  def get_tax_value
+    @tax_value
+  end
 end
