@@ -1,19 +1,19 @@
 class CommonUtil
   
-  def self.print_bill(bill_arr)
+  def self.print_bill(bill)
     puts "----------BILL OF ITEMS----------"
-    sales_tax = 0
-    total = 0
-    bill_arr.each do |goods|
+    bill.bill_arr.each do |goods|
       goods.print_bill()
-      
-      tax = TaxController.apply_tax_to_goods(goods)
-      sales_tax += goods.calculate_tax(tax)
-      total += goods.calculate_total()
     end
     puts "------------"
-    puts "Sales Taxes: #{sales_tax}"
-    puts "Total: #{total}"
+    puts "Sales Taxes: #{bill.get_sales_taxes.round(2)}"
+    puts "Total: #{bill.get_total.round(2)}"
     puts "---------------------------------"
+    
+    puts "Type [clear] to clear bill or hit enter to ignore and purchase more items"
+    command = gets.chomp
+    if(command == "clear")
+      bill.clear_bill()
+    end
   end
 end

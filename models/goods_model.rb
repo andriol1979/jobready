@@ -40,17 +40,8 @@ class GoodsModel
     @is_imported
   end
   
-  #Be used to print to output
-  def print_bill()
-    puts "#{@quantity}, #{@name}, #{@price}"
-  end
-  
-  def print_object()
-    puts "#{@id} -------------- #{@name}"
-  end
-  
   #public method
-  #Calculate tax = total amount * tax_value/100
+  #Calculate total = @quantity * (@price + @tax_value)
   def calculate_total()
     return @quantity * (@price + @tax_value)
   end
@@ -58,6 +49,15 @@ class GoodsModel
   #Calculate tax = total amount * tax_value/100
   def calculate_tax(tax)
     return (@quantity * @price * tax) / 100
+  end
+  
+  #Be used to print to output
+  def print_bill()
+    puts "#{@quantity}, #{@name}, #{(@price + @tax_value).round(2)}"
+  end
+  
+  def print_object()
+    puts "#{@id} -------------- #{@name}"
   end
   
 end

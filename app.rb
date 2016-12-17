@@ -75,12 +75,18 @@ class App
     goods = GoodsController::goods_hashmap[goods_id]
     goods.set_quantity(quantity)
     goods.set_price(price)
+    #Calculate tax for this goods
+    tax = TaxController.apply_tax_to_goods(goods)
+    tax_value = goods.calculate_tax(tax)
+    goods.set_tax_value(tax_value)
     
     #Add item into bill
     bill.bill_arr.push(goods)
+    bill.set_sales_taxes(tax_value)
+    bill.set_total(goods.calculate_total)
     
     #Print bill
-    CommonUtil.print_bill(bill.bill_arr)
+    CommonUtil.print_bill(bill)
   end
   
 end
