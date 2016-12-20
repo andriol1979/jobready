@@ -52,7 +52,7 @@ class App
   puts "## Output 1"
   arr1.each do |order|
     puts "#{order.quantity}, #{order.product.name}, #{'%.2f' % order.product.price_include_tax}"
-    sales_tax1 += order.product.sales_tax
+    sales_tax1 += order.product.tax
     total1 += order.total
   end
   puts ""
@@ -73,7 +73,7 @@ class App
   puts "## Output 2"
   arr2.each do |order|
     puts "#{order.quantity}, #{order.product.name}, #{'%.2f' % order.product.price_include_tax}"
-    sales_tax2 += order.product.sales_tax
+    sales_tax2 += order.product.tax
     total2 += order.total
   end
   puts ""
@@ -96,7 +96,7 @@ class App
   puts "## Output 3"
   arr3.each do |order|
     puts "#{order.quantity}, #{order.product.name}, #{'%.2f' % order.product.price_include_tax}"
-    sales_tax3 += order.product.sales_tax
+    sales_tax3 += order.product.tax
     total3 += order.total
   end
   puts ""
