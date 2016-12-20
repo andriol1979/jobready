@@ -1,4 +1,4 @@
-class GoodsModel
+class Product
   
   @sales_tax
   @price_include_tax
@@ -35,6 +35,10 @@ class GoodsModel
     @price = value
   end
   
+  def name
+    @name
+  end
+
   def is_exempt
     @is_exempt
   end
@@ -45,20 +49,11 @@ class GoodsModel
   
   #public method
   def sales_tax
-    @sales_tax ||= (basic_tax.to_f + imported_tax.to_f)/100 * @price
+    return @sales_tax = ((basic_tax.to_f + imported_tax.to_f)/100 * @price).round(2)
   end
 
   def price_include_tax
-    @price_include_tax = @price + (sales_tax if @sales_tax == nil)
-  end
-  
-  #Be used to print to output
-  def print_bill()
-    puts "#{@quantity}, #{@name}, #{(@price + tax_value).round(2)}"
-  end
-  
-  def print_object()
-    puts "#{@id} -------------- #{@name}"
+    return @price_include_tax = (@price + ((basic_tax.to_f + imported_tax.to_f)/100 * @price)).round(2)
   end
   
 end
