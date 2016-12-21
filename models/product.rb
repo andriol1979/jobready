@@ -16,17 +16,17 @@ class Product
                 :is_exempt
   
   def basic_rate
-    return 10 unless @is_exempt
-    0
+    return 10.00 unless @is_exempt
+    0.00
   end
     
   def imported_rate
-    return 0 unless @is_imported
-    5
+    return 0.00 unless @is_imported
+    5.00
   end
 
   def tax
-    ((basic_rate.to_f + imported_rate.to_f)/100 * @price).round(2)
+    ((basic_rate + imported_rate)/100 * @price).round(2)
   end
 
   def price_include_tax

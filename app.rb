@@ -3,6 +3,7 @@
 #Required
 require './models/product'
 require './models/order'
+require './services/invoice'
 
 class App
   
@@ -37,6 +38,10 @@ class App
   arr2 = [Order.new(1, p4), Order.new(1, p5)]
   arr3 = [Order.new(1, p6), Order.new(1, p7), Order.new(1, p8), Order.new(1, p9)]
 
+  invoice1 = Invoice.new(arr1)
+  invoice2 = Invoice.new(arr2)
+  invoice3 = Invoice.new(arr3)
+
   # OUTPUT
 
   ## Output 1
@@ -46,18 +51,7 @@ class App
 
   # Sales Taxes: 1.50
   # Total: 29.83
-  sales_tax1 = 0
-  total1 = 0
-
-  puts "## Output 1"
-  arr1.each do |order|
-    puts "#{order.quantity}, #{order.product.name}, #{'%.2f' % order.product.price_include_tax}"
-    sales_tax1 += order.product.tax
-    total1 += order.total
-  end
-  puts ""
-  puts "Sales Taxes: #{sales_tax1}"
-  puts "Total: #{total1}"
+  invoice1.print
 
   ## Output 2
   # 1, imported box of chocolates, 10.50
@@ -65,20 +59,7 @@ class App
 
   # Sales Taxes: 7.65
   # Total: 65.15
-  sales_tax2 = 0
-  total2 = 0
-
-  puts "----------------------------"
-
-  puts "## Output 2"
-  arr2.each do |order|
-    puts "#{order.quantity}, #{order.product.name}, #{'%.2f' % order.product.price_include_tax}"
-    sales_tax2 += order.product.tax
-    total2 += order.total
-  end
-  puts ""
-  puts "Sales Taxes: #{sales_tax2}"
-  puts "Total: #{total2}"
+  invoice2.print
 
   ## Output 3
   # 1, imported bottle of perfume, 32.19
@@ -88,19 +69,6 @@ class App
 
   # Sales Taxes: 6.70
   # Total: 74.68
-  sales_tax3 = 0
-  total3 = 0
-
-  puts "----------------------------"
-
-  puts "## Output 3"
-  arr3.each do |order|
-    puts "#{order.quantity}, #{order.product.name}, #{'%.2f' % order.product.price_include_tax}"
-    sales_tax3 += order.product.tax
-    total3 += order.total
-  end
-  puts ""
-  puts "Sales Taxes: #{sales_tax3}"
-  puts "Total: #{total3}"
+  invoice3.print
 
 end
