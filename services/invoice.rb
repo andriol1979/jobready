@@ -21,8 +21,8 @@ class Invoice
       print_order(order)
     end
     puts ""
-    puts "Sales Taxes: #{sales_tax}"
-    puts "Total: #{total}"
+    puts "Sales Taxes: #{'%.2f' % sales_tax}"
+    puts "Total: #{'%.2f' % total}"
   end
 
   private

@@ -32,5 +32,4 @@ class Product
   def price_include_tax
     (@price + tax).round(2)
   end
-  
 end

@@ -16,21 +16,5 @@ describe Invoice do
         expect(invoice.sales_tax).to eq 1.50
       end
     end
-
-    context 'Input 2' do
-      p4 = Product.new("ic", "Imported box of chocolates", 10.00, true, true)
-      p5 = Product.new("ip", "Imported bottle of perfume", 47.50, true, false)
-
-      arr = [Order.new(1, p1), Order.new(1, p2), Order.new(1, p3)]
-
-      invoice = Invoice.new(arr)
-
-      expect(invoice.sales_tax).to eq 1.50
-    end
   end
-
-  describe '#sales_tax' do
-    
-  end
-
 end
