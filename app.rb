@@ -34,7 +34,6 @@ class App
 
     Invoice.new(arr)
   end
-  
 
   ## Input 3
   # Quantity, Product, Price
@@ -52,35 +51,12 @@ class App
 
     Invoice.new(arr)
   end
+
+  def run
+    input_1.print
+    input_2.print
+    input_3.print
+  end
 end
 
-app = App.new
-
-# OUTPUT
-
-## Output 1
-# 1, book, 12.49
-# 1, music CD, 16.49
-# 1, chocolate bar, 0.85
-
-# Sales Taxes: 1.50
-# Total: 29.83
-app.input_1.print
-
-## Output 2
-# 1, imported box of chocolates, 10.50
-# 1, imported bottle of perfume, 54.65
-
-# Sales Taxes: 7.65
-# Total: 65.15
-app.input_2.print
-
-## Output 3
-# 1, imported bottle of perfume, 32.19
-# 1, bottle of perfume, 20.89
-# 1, packet of headache pills, 9.75
-# 1, imported box of chocolates, 11.85
-
-# Sales Taxes: 6.70
-# Total: 74.68
-app.input_3.print
+App.new.run

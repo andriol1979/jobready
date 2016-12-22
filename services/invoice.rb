@@ -5,9 +5,6 @@ class Invoice
   end
 
   def sales_tax
-    # @orders.each do |order|
-    #   sales_tax += order.product.tax
-    # end
     @orders.map { |order| order.product.tax }.inject(:+)
   end
 
